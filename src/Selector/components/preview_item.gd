@@ -9,6 +9,8 @@ signal favorite_unchecked
 
 var _sound_preview
 
+var backlink: PreviewItem
+
 const SOUND_BUTTON = preload("res://components/SoundButton.tscn")
 
 func _ready() -> void:

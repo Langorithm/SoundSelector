@@ -7,7 +7,7 @@ const PREVIEW_ITEM = preload("res://components/preview_item.tscn")
 
 func _ready():
 	preview_browser = find_child("PreviewBrowser",true)
-	favorites_browser = find_child("SelectedsBrowser",true)
+	favorites_browser = find_child("FavoritesBrowser",true)
 	get_tree().get_root().files_dropped.connect(_on_files_dropped)
 	
 
@@ -31,22 +31,47 @@ func make_new_item(file_path: StringName, browser: BoxContainer) -> PreviewItem:
 	
 	if browser == preview_browser:
 		item_preview.favorite_checked.connect(
-			add_to_favorites.bind(file_path),
-			CONNECT_ONE_SHOT
+			display_favorites
 		)
-		item_preview.favorite_checked.connect(
-			add_to_favorites.bind(file_path),
-			CONNECT_ONE_SHOT
+		item_preview.favorite_unchecked.connect(
+			display_favorites
 		)
+		
+		
+	if browser == favorites_browser:
+		item_preview.remove_child(item_preview.texture_button)
+
+
 	return item_preview
-	
-func add_to_favorites(file_path):
-	var item = make_new_item(file_path, favorites_browser)
-	item.favorite_unchecked.connect()
 
+func display_favorites():
+	favorites_browser.get_children().map(
+		func(child): favorites_browser.remove_child(child)
+	)
+	var favorites = preview_browser.get_children().filter(
+		func(child:PreviewItem): return child.texture_button.button_pressed
+	)
+	favorites.map(
+		func(favorite:PreviewItem):
+			var new = make_new_item(favorite.file_path, favorites_browser)
+	)
+	
 
-	
-func unfavorite_item(preview_item: PreviewItem):
-	preview_item.get_parent().remove_child(preview_item)
-	preview_item.queue_free()
-	
+	#
+#func add_to_favorites(preview_item: PreviewItem):
+	#var favorited_item = make_new_item(preview_item.file_path, favorites_browser) as PreviewItem
+	#favorited_item.texture_button.button_pressed = true
+	#favorited_item.favorite_unchecked.connect(
+		#remove_from_favorites.bind(favorited_item)
+	#)
+	#favorited_item.backlink = preview_item
+	#preview_item.favorite_unchecked.connect(
+		#remove_from_favorites.bind(favorited_item)
+	#)
+#
+#
+#func remove_from_favorites(preview_item: PreviewItem):
+	#preview_item.backlink.texture_button.button_pressed = false
+	#preview_item.get_parent().remove_child(preview_item)
+	#preview_item.queue_free()
+	#

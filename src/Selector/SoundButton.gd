@@ -23,8 +23,15 @@ func load_file(file_path: StringName):
 			stream.data = file_data.get_buffer(file_data.get_length())
 			audio_stream_player.stream = stream
 		"wav":
-			stream = AudioStreamWAV.new()
-			stream.data = file_data.get_buffer(file_data.get_length())
+			stream = AudioLoader.new().loadfile(file_path)
+			#stream = AudioStreamWAV.new()
+			#var bytes_array = file_data.get_buffer(file_data.get_length())
+			##print("wav bytes size: " + str(file_data.get_length()))
+			##print(len(bytes_array))
+			##print(bytes_array[])
+			#for i in range(len(bytes_array)):
+				#bytes_array[i] = bytes_array[i]-128
+			#stream.data = bytes_array
 			audio_stream_player.stream = stream
 		"ogg":
 			audio_stream_player.stream = AudioStreamOggVorbis.load_from_file(file_path)
