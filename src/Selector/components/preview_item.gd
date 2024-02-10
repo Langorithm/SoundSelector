@@ -7,7 +7,7 @@ signal favorite_unchecked
 @export var file_path: StringName
 @onready var favorite_button: Button = $FavoriteButton
 
-var _sound_preview
+var _sound_preview: Button
 
 var backlink: PreviewItem
 
@@ -40,6 +40,8 @@ func _ready() -> void:
 
 func _on_favorite_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
+		_sound_preview.theme_type_variation = "FavoriteButton"
 		emit_signal("favorite_checked")
 	else:
+		_sound_preview.theme_type_variation = ""
 		emit_signal("favorite_unchecked")

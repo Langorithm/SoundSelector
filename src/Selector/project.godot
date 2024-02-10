@@ -18,3 +18,7 @@ config/icon="res://logo.png"
 [display]
 
 window/size/always_on_top=true
+
+[gui]
+
+theme/custom="res://sample-theme.tres"

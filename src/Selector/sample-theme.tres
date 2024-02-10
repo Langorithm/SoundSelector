@@ -1,0 +1,52 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://jnpjmyyrgrij"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nmox"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="Gradient" id="Gradient_il1y8"]
+colors = PackedColorArray(0.0807833, 0.0807833, 0.0807833, 1, 0.17, 0.17, 0.17, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_065pe"]
+gradient = SubResource("Gradient_il1y8")
+width = 2
+height = 2
+fill_from = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p51hn"]
+texture = SubResource("GradientTexture2D_065pe")
+
+[sub_resource type="Gradient" id="Gradient_1mq4l"]
+offsets = PackedFloat32Array(0.265957, 1)
+colors = PackedColorArray(0.099986, 0.099986, 0.099986, 1, 0.81, 0.656235, 0.2673, 0.356863)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x18bp"]
+gradient = SubResource("Gradient_1mq4l")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hqfuu"]
+texture = SubResource("GradientTexture2D_x18bp")
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxFlat_0nmox")
+Button/styles/normal = SubResource("StyleBoxTexture_p51hn")
+FavoriteButton/base_type = &"Button"
+FavoriteButton/colors/font_color = Color(0.945098, 0.945098, 0.945098, 1)
+FavoriteButton/font_sizes/font_size = 16
+FavoriteButton/styles/normal = SubResource("StyleBoxTexture_hqfuu")

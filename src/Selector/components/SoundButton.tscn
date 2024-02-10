@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvcwn38idybm5"]
+[gd_scene load_steps=4 format=3 uid="uid://bvcwn38idybm5"]
 
+[ext_resource type="Theme" uid="uid://jnpjmyyrgrij" path="res://sample-theme.tres" id="1_hmvs4"]
 [ext_resource type="Texture2D" uid="uid://b4ttv8i36bvt7" path="res://icons/file_icon.png" id="1_wqybc"]
 [ext_resource type="Script" path="res://SoundButton.gd" id="2_gch7d"]
 
 [node name="SoundPreview" type="Button"]
+offset_right = 172.0
+offset_bottom = 42.0
 size_flags_vertical = 4
+theme = ExtResource("1_hmvs4")
 theme_override_font_sizes/font_size = 30
 button_mask = 3
-text = "-"
+text = "sdasdadasd"
 icon = ExtResource("1_wqybc")
 expand_icon = true
 script = ExtResource("2_gch7d")

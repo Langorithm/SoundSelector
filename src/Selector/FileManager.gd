@@ -12,12 +12,7 @@ func _ready():
 	preview_browser = find_child("PreviewBrowser",true)
 	favorites_browser = find_child("FavoritesBrowser",true)
 	get_tree().get_root().files_dropped.connect(_on_files_dropped)
-	
 
-#func _shortcut_input(event: InputEvent) -> void:
-	#if event.is_released() and event.as_text() == "B":
-		#print()
-		#display_favorites.call_deferred()
 
 func _on_files_dropped(dropped_files):
 	for path in dropped_files:

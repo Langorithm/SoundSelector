@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://do5naif6bmh5b"]
+[gd_scene load_steps=3 format=3 uid="uid://do5naif6bmh5b"]
 
+[ext_resource type="Theme" uid="uid://jnpjmyyrgrij" path="res://sample-theme.tres" id="1_jki0q"]
 [ext_resource type="Script" path="res://FileManager.gd" id="1_tg13k"]
 
 [node name="Control" type="Control"]
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_jki0q")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
