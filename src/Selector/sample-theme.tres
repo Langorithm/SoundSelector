@@ -50,3 +50,7 @@ FavoriteButton/base_type = &"Button"
 FavoriteButton/colors/font_color = Color(0.945098, 0.945098, 0.945098, 1)
 FavoriteButton/font_sizes/font_size = 16
 FavoriteButton/styles/normal = SubResource("StyleBoxTexture_hqfuu")
+MarginContainer/constants/margin_bottom = 8
+MarginContainer/constants/margin_left = 8
+MarginContainer/constants/margin_right = 8
+MarginContainer/constants/margin_top = 8
