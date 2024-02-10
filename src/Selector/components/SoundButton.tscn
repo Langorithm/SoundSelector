@@ -13,3 +13,5 @@ expand_icon = true
 script = ExtResource("2_gch7d")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]

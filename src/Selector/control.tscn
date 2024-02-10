@@ -31,6 +31,7 @@ follow_focus = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_neighbor_right = NodePath("../../ScrollContainer2/FavoritesBrowser")
 
 [node name="ScrollContainer2" type="ScrollContainer" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
@@ -41,6 +42,7 @@ follow_focus = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_neighbor_left = NodePath("../../ScrollContainer/PreviewBrowser")
 
 [node name="Control" type="Control" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2

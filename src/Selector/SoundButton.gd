@@ -44,3 +44,8 @@ func play():
 	if not audio_stream_player.playing:
 		audio_stream_player.play()
 	
+
+
+func _on_focus_entered() -> void:
+	print("next: "+find_next_valid_focus().to_string())
+	print("prev: "+find_prev_valid_focus().to_string())

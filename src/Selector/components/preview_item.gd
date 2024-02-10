@@ -5,7 +5,7 @@ signal favorite_checked
 signal favorite_unchecked
 
 @export var file_path: StringName
-@onready var texture_button: TextureButton = $TextureButton
+@onready var favorite_button: Button = $FavoriteButton
 
 var _sound_preview
 
@@ -23,15 +23,23 @@ func _ready() -> void:
 		_sound_preview.load_file(file_path)
 	
 	
-	#Set up signal relay
-	texture_button.button_up.connect(
-		func(): 
-			if texture_button.button_pressed:
-				emit_signal("favorite_checked")
-			else:
-				emit_signal("favorite_unchecked")
-	)
+	##Set up signal relay
+	#favorite_button.toggled.connect(
+		#func(): 
+			#if favorite_button.button_pressed:
+				#emit_signal("favorite_checked")
+			#else:
+				#emit_signal("favorite_unchecked")
+	#)
+
 	
 	#Organize Layout
-	texture_button.move_to_front()
+	favorite_button.move_to_front()
 	_sound_preview.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+
+
+func _on_favorite_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		emit_signal("favorite_checked")
+	else:
+		emit_signal("favorite_unchecked")
